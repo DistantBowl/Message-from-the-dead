@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 110016139}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d37dd9d1cffdf45a324837e518dc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   acceleration: 3
   maxSpeed: 10
 --- !u!1 &277698679
@@ -10111,7 +10112,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1914220276777405058, guid: 6ada604703bc3ec45b7bdf8f08029932, type: 3}
       propertyPath: m_Name
-      value: Death marker
+      value: Death marker (0)
       objectReference: {fileID: 0}
     - target: {fileID: 2680591748197724824, guid: 6ada604703bc3ec45b7bdf8f08029932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10305,7 +10306,7 @@ GameObject:
   - component: {fileID: 1227484755}
   m_Layer: 3
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10539,6 +10540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e3eb120a723b146b424ec994d971ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathTime: 30
+  dead: 0
 --- !u!1 &1378866702
 GameObject:
   m_ObjectHideFlags: 0
