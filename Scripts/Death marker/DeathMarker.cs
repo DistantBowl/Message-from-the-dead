@@ -1,16 +1,21 @@
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class DeathMarker : MonoBehaviour
 {
     public float deathTime = 30;
+    private TMP_Text timeDisplay;
     private GameObject currentMark;
+    private PlayerValues playerValues;
     public bool dead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerValues = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerValues>();
+        timeDisplay = GameObject.Find("Time remaining").GetComponent<TMP_Text>();
         currentMark = selectMarker();
         revealDeathMark();
     }
@@ -30,6 +35,7 @@ public class DeathMarker : MonoBehaviour
 
         if (distance <= 1) 
         {
+            playerValues.score += (int)(50 * deathTime);
             currentMark.layer = LayerMask.NameToLayer("Invisible markers");
             currentMark = selectMarker();
             revealDeathMark();
