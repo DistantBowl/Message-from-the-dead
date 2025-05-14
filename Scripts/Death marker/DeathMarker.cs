@@ -15,7 +15,15 @@ public class DeathMarker : MonoBehaviour
     void Start()
     {
         playerValues = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerValues>();
-        timeDisplay = GameObject.Find("Time remaining").GetComponent<TMP_Text>();
+        GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (GameObject item in gameObjects) 
+        {
+            if (item.name == "Time remaining") 
+            {
+                timeDisplay = item.GetComponent<TMP_Text>();
+                break;
+            }          
+        }
         currentMark = selectMarker();
         revealDeathMark();
     }

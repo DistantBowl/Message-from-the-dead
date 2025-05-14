@@ -3,16 +3,21 @@ using UnityEngine;
 public class ExpandMap : MonoBehaviour
 {
     private PlayerValues playerValues;
-    private GameObject map;
-    private GameObject miniMap;
+    public GameObject map;
+    public GameObject miniMap;
     private bool switched;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerValues = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerValues>();
-        map = GameObject.Find("Map backround");
-        map.SetActive(false);
-        miniMap = GameObject.Find("Mini map backround");
+        int itemsLocated = 0;
+        GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (GameObject item in gameObjects) 
+        {
+            if (item.name == "Map backround") {map = item; itemsLocated++;}
+            else if (item.name == "Mini map backround") {miniMap = item; itemsLocated++;}
+            if (itemsLocated == 2) {break;}       
+        }
     }
 
     // Update is called once per frame
