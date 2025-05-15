@@ -6,7 +6,7 @@ using UnityEngine;
 public class DeathMarker : MonoBehaviour
 {
     public float deathTime = 30;
-    private TMP_Text timeDisplay;
+    private GameObject gameOverMenu;
     private GameObject currentMark;
     private PlayerValues playerValues;
     public bool dead = false;
@@ -18,9 +18,9 @@ public class DeathMarker : MonoBehaviour
         GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (GameObject item in gameObjects) 
         {
-            if (item.name == "Time remaining") 
+            if (item.name == "Game Over") 
             {
-                timeDisplay = item.GetComponent<TMP_Text>();
+                gameOverMenu = item;
                 break;
             }          
         }
@@ -33,7 +33,11 @@ public class DeathMarker : MonoBehaviour
     {
         detectPlayer();
         deathTime -= Time.deltaTime;
-        if (deathTime <= 0) {dead = true;}
+        if (deathTime <= 0) 
+        {
+            gameOverMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     void detectPlayer() 
