@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Vector2 direction = values.inputs.Player.Move.ReadValue<Vector2>();
-        rb.AddForce(direction*values.acceleration);
+        rb.AddForce(direction * values.acceleration);
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, values.maxSpeed);
 
         animator.SetFloat("Angle Right", Vector2.Angle(Vector2.right, rb.linearVelocity));

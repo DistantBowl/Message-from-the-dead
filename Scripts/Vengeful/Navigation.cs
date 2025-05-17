@@ -1,0 +1,30 @@
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Assertions.Must;
+
+public class Navigation : MonoBehaviour
+{
+    private Animator animator;
+    private NavMeshAgent agent;
+    private GameObject player;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (animator.GetBool("Spawned")) 
+        {
+            agent.SetDestination(player.transform.position);
+        }   
+    }
+}
