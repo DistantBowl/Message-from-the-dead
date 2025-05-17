@@ -1,28 +1,17 @@
-using System.Runtime.CompilerServices;
-using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class DeathMarker : MonoBehaviour
 {
     public float deathTime = 30;
-    private GameObject gameOverMenu;
     private GameObject currentMark;
     private PlayerValues playerValues;
+    public GameObject vengeful;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerValues = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerValues>();
-        GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        foreach (GameObject item in gameObjects) 
-        {
-            if (item.name == "Game Over") 
-            {
-                gameOverMenu = item;
-                break;
-            }          
-        }
         currentMark = selectMarker();
         revealDeathMark();
     }
@@ -34,9 +23,11 @@ public class DeathMarker : MonoBehaviour
         deathTime -= Time.deltaTime;
         if (deathTime <= 0) 
         {
-            playerValues.gameObject.GetComponent<AudioSource>().Stop();
-            gameOverMenu.SetActive(true);
-            Time.timeScale = 0;
+            Instantiate(vengeful, currentMark.transform.position, new quaternion(0,0,0,0));
+            deathTime += 30;
+            currentMark.layer = LayerMask.NameToLayer("Invisible markers");
+            currentMark = selectMarker();
+            revealDeathMark();
         }
     }
 
@@ -45,7 +36,7 @@ public class DeathMarker : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         float distance = Vector2.Distance(player.transform.position, currentMark.transform.position);
 
-        if (distance <= 1) 
+        if (distance <= 1.5) 
         {
             gameObject.GetComponent<AudioSource>().Play();
             playerValues.score += (int)(50 * deathTime);

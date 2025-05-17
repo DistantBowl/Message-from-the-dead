@@ -1,7 +1,5 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Assertions.Must;
 
 public class Navigation : MonoBehaviour
 {
@@ -22,7 +20,7 @@ public class Navigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animator.GetBool("Spawned")) 
+        if (animator.GetBool("Spawned") && !animator.GetBool("Die")) 
         {
             agent.SetDestination(player.transform.position);
         }   
