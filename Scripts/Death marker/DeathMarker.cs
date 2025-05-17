@@ -9,7 +9,6 @@ public class DeathMarker : MonoBehaviour
     private GameObject gameOverMenu;
     private GameObject currentMark;
     private PlayerValues playerValues;
-    public bool dead = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +34,7 @@ public class DeathMarker : MonoBehaviour
         deathTime -= Time.deltaTime;
         if (deathTime <= 0) 
         {
+            playerValues.gameObject.GetComponent<AudioSource>().Stop();
             gameOverMenu.SetActive(true);
             Time.timeScale = 0;
         }
@@ -47,6 +47,7 @@ public class DeathMarker : MonoBehaviour
 
         if (distance <= 1) 
         {
+            gameObject.GetComponent<AudioSource>().Play();
             playerValues.score += (int)(50 * deathTime);
             currentMark.layer = LayerMask.NameToLayer("Invisible markers");
             currentMark = selectMarker();
