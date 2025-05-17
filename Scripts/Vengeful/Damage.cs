@@ -18,7 +18,7 @@ public class Damage : MonoBehaviour
     {
         float distance = Vector2.Distance(playerValues.transform.position, gameObject.transform.position);
 
-        if (distance <= 0.85 && !animator.GetBool("Die")) 
+        if (distance <= 0.85 && !animator.GetBool("Die") && animator.GetBool("Spawned")) 
         {
             playerValues.health--;
             playerValues.gameObject.GetComponent<AudioSource>().PlayOneShot(damage);

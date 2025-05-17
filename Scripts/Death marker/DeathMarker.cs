@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DeathMarker : MonoBehaviour
 {
-    public float deathTime = 30;
+    public float deathTime = 15;
     private GameObject currentMark;
     private PlayerValues playerValues;
     public GameObject vengeful;
@@ -24,7 +24,7 @@ public class DeathMarker : MonoBehaviour
         if (deathTime <= 0) 
         {
             Instantiate(vengeful, currentMark.transform.position, new quaternion(0,0,0,0));
-            deathTime += 30;
+            deathTime += 15;
             currentMark.layer = LayerMask.NameToLayer("Invisible markers");
             currentMark = selectMarker();
             revealDeathMark();
@@ -56,7 +56,7 @@ public class DeathMarker : MonoBehaviour
         GameObject[] markers = GameObject.FindGameObjectsWithTag("Death marker");
         int markerID = (int)UnityEngine.Random.Range(0,markers.Length);
 
-        deathTime += UnityEngine.Random.Range(1, 10);
+        deathTime += UnityEngine.Random.Range(1, 5);
 
         return markers[markerID];
     }
