@@ -10,6 +10,12 @@ public class StartButtonController : MonoBehaviour
         SceneManager.LoadScene("Main Scene");
     }
 
+    public async void leaderboardButtonClicked()
+    {
+        await Wait(150);
+        SceneManager.LoadScene("Leaderboard");
+    }
+
     public async void quitButtonClicked() 
     {
         await Wait(150);

@@ -23,7 +23,7 @@ public class PauseGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<PlayerValues>().inputs.Player.pause.ReadValue<float>() > 0) 
+        if (player.GetComponent<PlayerValues>().inputs.Player.pause.ReadValue<float>() > 0 && GameObject.Find("Tutorial") == null) 
         {
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
