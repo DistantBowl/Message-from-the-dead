@@ -1,29 +1,29 @@
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartButtonController : MonoBehaviour
 {
-    public async void startButtonClicked() 
+    public void startButtonClicked() 
     {
-        await Wait(150);  // Wait for the sound to play before switching scene
-        SceneManager.LoadScene("Main Scene");
+        Wait(150);  // Wait for the sound to play before switching scene
+        SceneManager.LoadScene("MainScene");
     }
 
-    public async void leaderboardButtonClicked()
+    public void leaderboardButtonClicked()
     {
-        await Wait(150);  // Wait for the sound to play before switching scene
+        Wait(150);  // Wait for the sound to play before switching scene
         SceneManager.LoadScene("Leaderboard");
     }
 
-    public async void quitButtonClicked() 
+    public void quitButtonClicked() 
     {
-        await Wait(150);  // Wait for the sound to play before switching scene
+        Wait(150);  // Wait for the sound to play before switching scene
         Application.Quit();
     }
 
-    private async Task Wait(int delay)
+    private IEnumerable Wait(int ms)
     {
-        await Task.Delay(delay);
+        yield return new WaitForSeconds(ms / 1000);
     }
 }

@@ -1,17 +1,17 @@
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LeaderboardButtonController : MonoBehaviour
 {
-    public async void mainMenuButtonClicked() 
+    public void mainMenuButtonClicked() 
     {
-        await Wait(150);
-        SceneManager.LoadScene("Main Menu");
+        Wait(150);
+        SceneManager.LoadScene("MainMenu");
     }
 
-    private async Task Wait(int delay)
+    private IEnumerable Wait(int ms)
     {
-        await Task.Delay(delay);
+        yield return new WaitForSeconds(ms / 1000);
     }
 }

@@ -1,6 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -77,15 +77,15 @@ public class GameOverButtonController : MonoBehaviour
         usernameInput.gameObject.SetActive(false);
     }
 
-    public async void mainMenuButtonClicked() 
+    public void mainMenuButtonClicked() 
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerValues>().inputs.Disable();
-        await Wait(150);  // Wait for the sound to play before switching scene
-        SceneManager.LoadScene("Main Menu");
+        Wait(150);  // Wait for the sound to play before switching scene
+        SceneManager.LoadScene("MainMenu");
     }
 
-    private async Task Wait(int delay)
+    private IEnumerator Wait(int ms)
     {
-        await Task.Delay(delay);
+        yield return new WaitForSeconds(ms/1000);
     }
 }
