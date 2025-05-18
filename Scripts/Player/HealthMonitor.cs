@@ -9,6 +9,8 @@ public class HealthMonitor : MonoBehaviour
     void Start()
     {
         playerValues = GetComponent<PlayerValues>();
+
+        // Find the game over GUI when its inactive
         GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (GameObject item in gameObjects)
         {
@@ -25,9 +27,9 @@ public class HealthMonitor : MonoBehaviour
     {
         if (playerValues.health <= 0) 
         {
-            playerValues.gameObject.GetComponent<AudioSource>().Stop();
+            playerValues.gameObject.GetComponent<AudioSource>().Stop();  // Stop the backround music
             gameOverMenu.SetActive(true);
-            Time.timeScale = 0;
+            Time.timeScale = 0;  // Pause the time
         } 
     }
 }

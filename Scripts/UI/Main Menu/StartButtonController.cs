@@ -6,19 +6,19 @@ public class StartButtonController : MonoBehaviour
 {
     public async void startButtonClicked() 
     {
-        await Wait(150);
+        await Wait(150);  // Wait for the sound to play before switching scene
         SceneManager.LoadScene("Main Scene");
     }
 
     public async void leaderboardButtonClicked()
     {
-        await Wait(150);
+        await Wait(150);  // Wait for the sound to play before switching scene
         SceneManager.LoadScene("Leaderboard");
     }
 
     public async void quitButtonClicked() 
     {
-        await Wait(150);
+        await Wait(150);  // Wait for the sound to play before switching scene
         Application.Quit();
     }
 

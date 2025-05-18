@@ -16,11 +16,12 @@ public class Animation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.GetBool("Spawned")) 
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !animator.GetBool("Spawned"))  // Set spawned flag when animation is finished
         {
             animator.SetBool("Spawned", true);
         }
 
+        // Send data to animation controller
         animator.SetFloat("Angle Right", Vector2.Angle(Vector2.right, agent.velocity));
         animator.SetFloat("Angle Left", Vector2.Angle(Vector2.left, agent.velocity));
         animator.SetFloat("Angle Back", Vector2.Angle(Vector2.down, agent.velocity));

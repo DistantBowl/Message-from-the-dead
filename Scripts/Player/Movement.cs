@@ -18,10 +18,11 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 direction = values.inputs.Player.Move.ReadValue<Vector2>();
+        Vector2 direction = values.inputs.Player.Move.ReadValue<Vector2>();  // Get the movement direction
         rb.AddForce(direction * values.acceleration);
-        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, values.maxSpeed);
+        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, values.maxSpeed);  // Ensure the player doesn't exceed the max speed
 
+        // Pass information for the animation manager
         animator.SetFloat("Angle Right", Vector2.Angle(Vector2.right, rb.linearVelocity));
         animator.SetFloat("Angle Left", Vector2.Angle(Vector2.left, rb.linearVelocity));
         animator.SetFloat("Angle Back", Vector2.Angle(Vector2.down, rb.linearVelocity));

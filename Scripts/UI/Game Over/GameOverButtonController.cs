@@ -25,9 +25,11 @@ public class GameOverButtonController : MonoBehaviour
 
         if (saveData)
         {
+            // Load and process the username save data
             string usernamesString = PlayerPrefs.GetString("Usernames");
             List<string> usernames = usernamesString.Split(", ").ToList();
 
+            // Load and process the score save data
             string scoresString = PlayerPrefs.GetString("Scores");
             string[] scores = scoresString.Split(", ");
             List<int> scoresInts = new List<int>();
@@ -36,6 +38,7 @@ public class GameOverButtonController : MonoBehaviour
                 scoresInts.Add(int.Parse(s));
             }
 
+            // Add data if the stored list isn't full (5 entries)
             if (scoresInts.Count < 5)
             {
                 scoresInts.Add(playerValues.score);
@@ -43,6 +46,8 @@ public class GameOverButtonController : MonoBehaviour
                 usernames.Add(usernameInput.text);
                 notice.text = "Score successfully saved";
             }
+
+            // Replace remove the lowest score to add the new one
             else if (playerValues.score > scoresInts[0])
             {
                 scoresInts.Add(playerValues.score);
@@ -51,18 +56,23 @@ public class GameOverButtonController : MonoBehaviour
                 usernames[scoresInts.LastIndexOf(playerValues.score)] = usernameInput.text;
                 notice.text = "Score successfully saved";
             }
+
+            // Don't add the score if it's lower then the current lowest
             else { notice.text = "You didn't make it on the leaderboard."; }
 
-
+            // Store the values for saving
             PlayerPrefs.SetString("Usernames", usernames.ToCommaSeparatedString());
             PlayerPrefs.SetString("Scores", scoresInts.ToCommaSeparatedString());
         }
         else 
         {
+            // Store the values for saving
             PlayerPrefs.SetString("Usernames", usernameInput.text);
             PlayerPrefs.SetString("Scores", playerValues.score.ToString());
             notice.text = "Score successfully saved";
         }
+
+        // Save the data and remove the username input box
         PlayerPrefs.Save();
         usernameInput.gameObject.SetActive(false);
     }
@@ -70,7 +80,7 @@ public class GameOverButtonController : MonoBehaviour
     public async void mainMenuButtonClicked() 
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerValues>().inputs.Disable();
-        await Wait(150);
+        await Wait(150);  // Wait for the sound to play before switching scene
         SceneManager.LoadScene("Main Menu");
     }
 

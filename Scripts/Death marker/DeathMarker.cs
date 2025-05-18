@@ -23,9 +23,9 @@ public class DeathMarker : MonoBehaviour
         deathTime -= Time.deltaTime;
         if (deathTime <= 0) 
         {
-            Instantiate(vengeful, currentMark.transform.position, new quaternion(0,0,0,0));
+            Instantiate(vengeful, currentMark.transform.position, new quaternion(0,0,0,0));  // Spawn a vengeful
             deathTime += 15;
-            currentMark.layer = LayerMask.NameToLayer("Invisible markers");
+            currentMark.layer = LayerMask.NameToLayer("Invisible markers");  // Hide the current mark
             currentMark = selectMarker();
             revealDeathMark();
         }
@@ -40,7 +40,7 @@ public class DeathMarker : MonoBehaviour
         {
             gameObject.GetComponent<AudioSource>().Play();
             playerValues.score += (int)(50 * deathTime);
-            currentMark.layer = LayerMask.NameToLayer("Invisible markers");
+            currentMark.layer = LayerMask.NameToLayer("Invisible markers");  // Hide the current mark
             currentMark = selectMarker();
             revealDeathMark();
         }
@@ -56,7 +56,7 @@ public class DeathMarker : MonoBehaviour
         GameObject[] markers = GameObject.FindGameObjectsWithTag("Death marker");
         int markerID = (int)UnityEngine.Random.Range(0,markers.Length);
 
-        deathTime += UnityEngine.Random.Range(1, 5);
+        deathTime += UnityEngine.Random.Range(1, 5);  // Restore time on successful delivery
 
         return markers[markerID];
     }

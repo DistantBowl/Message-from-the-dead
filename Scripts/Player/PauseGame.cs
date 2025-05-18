@@ -9,6 +9,8 @@ public class PauseGame : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        // Find the pause menu when its inactive
         GameObject[] gameObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (GameObject item in gameObjects) 
         {
@@ -25,7 +27,7 @@ public class PauseGame : MonoBehaviour
     {
         if (player.GetComponent<PlayerValues>().inputs.Player.pause.ReadValue<float>() > 0 && GameObject.Find("Tutorial") == null) 
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0;  // Stop the time
             pauseMenu.SetActive(true);
         }
     }

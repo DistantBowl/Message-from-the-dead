@@ -13,21 +13,22 @@ public class UpdateLeaderboard : MonoBehaviour
 
         if (saveData)
         {
+            // Load and process username data
             string usernamesString = PlayerPrefs.GetString("Usernames");
             string[] usernames = usernamesString.Split(", ");
-            usernames.Reverse();
+            usernames.Reverse();  // Flip order from ascending to decending
 
+            // Load and process username data
             string scoresString = PlayerPrefs.GetString("Scores");
             List<string> scoresInts = scoresString.Split(", ").ToList();
-            scoresInts.Reverse();
+            scoresInts.Reverse();  // Flip order from ascending to decending
 
             int entryID = 0;
-            for ( int i = 0; i < 5; i++) 
+            for ( int i = 0; i < 5; i++)  // Loop for the max of 5 entries
             {
-                GameObject entry = GameObject.Find($"Entry ({entryID})");
-                entry.transform.GetChild(0).GetComponent<TMP_Text>().text = usernames[entryID]+": "+scoresInts[entryID].ToString();
+                GameObject entry = GameObject.Find($"Entry ({entryID})");  // Find the entry object
+                entry.transform.GetChild(0).GetComponent<TMP_Text>().text = usernames[entryID]+": "+scoresInts[entryID].ToString(); // Write the data
                 entryID++;
-                if (entryID == scoresInts.Count) { i = 5; }
             }
         }
     }

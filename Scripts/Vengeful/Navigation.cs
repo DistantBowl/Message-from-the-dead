@@ -20,9 +20,9 @@ public class Navigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animator.GetBool("Spawned") && !animator.GetBool("Die")) 
+        if (animator.GetBool("Spawned") && !animator.GetBool("Die"))  // Only move when fully spawned
         {
-            agent.SetDestination(player.transform.position);
+            agent.SetDestination(player.transform.position);  // update nav agents target position
         }   
     }
 }
