@@ -150,10 +150,10 @@ RectTransform:
   - {fileID: 896409017}
   m_Father: {fileID: 1331565907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0}
-  m_SizeDelta: {x: 0.00018311, y: 0}
+  m_AnchorMin: {x: 0, y: 0.33927342}
+  m_AnchorMax: {x: 1, y: 0.6601612}
+  m_AnchoredPosition: {x: 0.00012207031, y: -1.6817017}
+  m_SizeDelta: {x: 0.0002, y: 33.363403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &58394522
 GameObject:
@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3588d60dedd35744a9ba7cc08d940654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClick: {fileID: 8300000, guid: 1bf1ac18f9b4ee648a8146e6c98d1ce9, type: 3}
 --- !u!114 &60638715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +373,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -742,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   acceleration: 12.5
-  maxSpeed: 8
+  maxSpeed: 10
   health: 4
 --- !u!114 &110016141
 MonoBehaviour:
@@ -10896,10 +10897,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1239111548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00051502, y: -0.00047219}
-  m_SizeDelta: {x: 273.4, y: 170.36}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0005187988, y: -0.00047302246}
+  m_SizeDelta: {x: 13.399994, y: -5.6399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &349283165
 MonoBehaviour:
@@ -11686,18 +11687,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 110016143}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 1bf1ac18f9b4ee648a8146e6c98d1ce9, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1789174775}
         m_TargetAssemblyTypeName: TutorialButtonController, Assembly-CSharp
         m_MethodName: startButtonClicked
@@ -12070,6 +12059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfaaa5bd7c674045aecdaa2824d10bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClick: {fileID: 8300000, guid: 1bf1ac18f9b4ee648a8146e6c98d1ce9, type: 3}
 --- !u!114 &761658764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12640,18 +12630,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 110016143}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 1bf1ac18f9b4ee648a8146e6c98d1ce9, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 761658763}
         m_TargetAssemblyTypeName: PauseButtonManager, Assembly-CSharp
         m_MethodName: resumeButtonClicked
@@ -12812,7 +12790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.28268433, y: 0.16320038}
+  m_AnchoredPosition: {x: -0.28271484, y: 0.16320038}
   m_SizeDelta: {x: -5.7362, y: -32.6444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896409018
@@ -13876,18 +13854,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 110016143}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 1bf1ac18f9b4ee648a8146e6c98d1ce9, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 761658763}
         m_TargetAssemblyTypeName: PauseButtonManager, Assembly-CSharp
         m_MethodName: mainMenuButtonClicked
@@ -13970,10 +13936,10 @@ RectTransform:
   - {fileID: 349283164}
   m_Father: {fileID: 1378866706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -57}
-  m_SizeDelta: {x: 273.40002, y: 170.35999}
+  m_AnchorMin: {x: 0.39722225, y: 0.33953184}
+  m_AnchorMax: {x: 0.6205556, y: 0.5}
+  m_AnchoredPosition: {x: -0.67401123, y: 0.96713257}
+  m_SizeDelta: {x: -1.3479996, y: 1.5424004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1247627069
 GameObject:
@@ -14209,7 +14175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.011000001, y: 0.814}
   m_AnchorMax: {x: 0.32061583, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.10626221}
+  m_AnchoredPosition: {x: 0, y: -0.10632324}
   m_SizeDelta: {x: -2.1777954, y: 0.21270752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331565908
@@ -15025,7 +14991,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.2
+  m_fontSize: 22.9
   m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15408,6 +15374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd1e11535a59b840ab11980d6693a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonClick: {fileID: 8300000, guid: 1bf1ac18f9b4ee648a8146e6c98d1ce9, type: 3}
 --- !u!114 &1789174776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22321,7 +22288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.026, y: 0.36186168}
   m_AnchorMax: {x: 0.37100002, y: 0.68268925}
-  m_AnchoredPosition: {x: 4.4201, y: -19.19}
+  m_AnchoredPosition: {x: 4.4200745, y: -19.190002}
   m_SizeDelta: {x: 4.8499756, y: -2.3577995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852204567
@@ -22692,18 +22659,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 60638719}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 1bf1ac18f9b4ee648a8146e6c98d1ce9, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 60638714}
         m_TargetAssemblyTypeName: GameOverButtonController, Assembly-CSharp
         m_MethodName: mainMenuButtonClicked
@@ -22946,7 +22901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40971372, y: 0.92700005}
   m_AnchorMax: {x: 0.595, y: 0.97700006}
-  m_AnchoredPosition: {x: -2.687729, y: 1}
+  m_AnchoredPosition: {x: -2.6877441, y: 1}
   m_SizeDelta: {x: 3, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1949819112

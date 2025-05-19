@@ -29,6 +29,7 @@ public class UpdateLeaderboard : MonoBehaviour
                 GameObject entry = GameObject.Find($"Entry ({entryID})");  // Find the entry object
                 entry.transform.GetChild(0).GetComponent<TMP_Text>().text = usernames[entryID]+": "+scoresInts[entryID].ToString(); // Write the data
                 entryID++;
+                if (entryID == scoresInts.Count-1) { break; }
             }
         }
     }

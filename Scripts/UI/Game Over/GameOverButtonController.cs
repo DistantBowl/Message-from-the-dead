@@ -1,13 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SetPersistance;
 
 public class GameOverButtonController : MonoBehaviour
 {
+    public AudioClip buttonClick;
     private PlayerValues playerValues;
     private TMP_Text notice;
     private TMP_InputField usernameInput;
@@ -21,6 +22,8 @@ public class GameOverButtonController : MonoBehaviour
 
     public void submitButtonClicked() 
     {
+        instance.GetComponent<AudioSource>().PlayOneShot(buttonClick);
+
         bool saveData = PlayerPrefs.HasKey("Usernames") && PlayerPrefs.HasKey("Scores");
 
         if (saveData)
@@ -80,12 +83,7 @@ public class GameOverButtonController : MonoBehaviour
     public void mainMenuButtonClicked() 
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerValues>().inputs.Disable();
-        Wait(150);  // Wait for the sound to play before switching scene
+        instance.GetComponent<AudioSource>().PlayOneShot(buttonClick);
         SceneManager.LoadScene("MainMenu");
-    }
-
-    private IEnumerator Wait(int ms)
-    {
-        yield return new WaitForSeconds(ms/1000);
     }
 }

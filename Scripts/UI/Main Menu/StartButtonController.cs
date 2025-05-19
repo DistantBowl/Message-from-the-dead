@@ -1,29 +1,26 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SetPersistance;
 
 public class StartButtonController : MonoBehaviour
 {
+    public AudioClip buttonClick;
+
     public void startButtonClicked() 
     {
-        Wait(150);  // Wait for the sound to play before switching scene
+        instance.GetComponent<AudioSource>().PlayOneShot(buttonClick);
         SceneManager.LoadScene("MainScene");
     }
 
     public void leaderboardButtonClicked()
     {
-        Wait(150);  // Wait for the sound to play before switching scene
+        instance.GetComponent<AudioSource>().PlayOneShot(buttonClick);
         SceneManager.LoadScene("Leaderboard");
     }
 
     public void quitButtonClicked() 
     {
-        Wait(150);  // Wait for the sound to play before switching scene
+        instance.GetComponent<AudioSource>().PlayOneShot(buttonClick);
         Application.Quit();
-    }
-
-    private IEnumerable Wait(int ms)
-    {
-        yield return new WaitForSeconds(ms / 1000);
     }
 }
